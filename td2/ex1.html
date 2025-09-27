@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            gap:10px;
+        }
+        #formR{
+            margin-top: 90px;
+        }
+        #form,#formR{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            flex-direction: column;
+            gap:10px;
+        }
+        #saisie , #Srech{
+            padding: 5px;
+        }
+        #ajouter,#rec{
+            padding: 10px;
+            background-color: gold;
+        }
+        #list , #list1{
+            align-self: center;
+        }
+        #list li, #list1 li{
+            padding: 10px;
+            color:black;
+            font-weight: 600;
+            background-color: antiquewhite;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:5px;
+        }
+        .supp{
+            background-color: crimson;
+            padding: 15px;
+            color: black;
+        }
+        .term{
+            background-color: rgb(34, 155, 10);
+            padding: 15px;
+            color: black;
+        }
+        .termine{
+            text-decoration: line-through;
+        }
+        #list li div, #list1 li div{
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <form id="form">
+            <input id="saisie" />
+            <button id="ajouter" type="submit" >ajouter</button>
+        </form>
+        <input id="Srech" placeholder="search..." />
+        <ol id="list" >
+        </ol>
+        <button class="supp" onclick="supprimeTous()"  >supprimer tous</button>
+
+    </div>
+    <script>
+        console.log("bonjour !");
+        let taches=localStorage.getItem('taches')??[];
+        console.log(taches);
+        let btn=document.getElementById("ajouter");
+        let list =document.getElementById('list');
+        let form=document.getElementById("form");
+        let searchInput =document.getElementById("Srech");
+        let saisie=document.getElementById("saisie");
+        let search={
+            status:false,
+            value:""
+        }
+
+        searchInput.addEventListener("input",(e)=>{
+            let value=e.target.value;
+            search.value=value;
+            search.status=value!==""?true:false;
+            render();
+
+        })
+
+        let supprimeTous=()=>{
+            taches=[];
+            render();
+        }
+        let render=()=>{
+            localStorage.setItem('taches', taches);
+            list.innerHTML='';
+            if(search.status){
+                taches.forEach((element,i) => {
+                    if(element.text.startsWith(search.value))
+                    list.innerHTML+=`
+                    <li >
+                        <div  class='${element.status==true?"termine":""}' >${element.text}</div>
+                        <button onclick="supprime(${i})"  class='supp' >supprimer</button>
+                        <button style='display:${element.status==true?"none":"block"}' class="term" onclick="terminer(${i})" >terminer</button>
+                    </li>`
+                });
+            }else{
+                taches.forEach((element,i) => {
+                    list.innerHTML+=`
+                    <li ><div  class='${element.status==true?"termine":""}' >${element.text}</div>
+                        <button onclick="supprime(${i})"  class='supp' >supprimer</button>
+                        <button style='display:${element.status==true?"none":"block"}' class="term" onclick="terminer(${i})" >terminer</button>
+                    </li>`
+                });
+            }
+
+        }
+        let supprime=(i)=>{
+            
+            taches=taches.filter((e,j)=>j!=i);
+            console.log(i)
+            render();
+        }
+        let terminer=(i)=>{
+            
+            taches[i].status=true;
+            console.log(taches)
+            render();
+        }
+        let ajoute=()=>{
+            let {value}=saisie;
+            if(!!value){
+                list.innerHTML+=`<li><div>${value}</div><button onclick="supprime(${taches.length})" class='supp' >supprimer</button><button class='term' onclick="terminer(${taches.length})" >terminer</button></li>`
+            }
+            taches.push({text:value,status:false});
+            saisie.value="";
+            
+        }
+
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            ajoute();
+        })
+
+
+    </script>
+</body>
+</html>
