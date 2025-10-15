@@ -1,0 +1,54 @@
+3-
+Fichier/Dossier	            Description
+src/	            Contient le code source de l’application : composants, styles, configuration d’environnement, etc.
+node_modules/	    Contient toutes les dépendances installées par npm (bibliothèques nécessaires à Angular).
+angular.json	    Fichier de configuration du projet Angular : structure, scripts, assets, styles, options de build.
+package.json	    Liste les dépendances du projet, les scripts npm et les métadonnées du projet.
+package-lock.json	Verrouille les versions exactes des dépendances installées pour assurer une installation identique sur toute machine.
+tsconfig.json	    Configure le compilateur TypeScript : options, chemins, fichiers à inclure/exclure.
+
+4-ng serve -o
+
+QCM — Outils de développement
+1	a
+2	c
+3	b
+4	b
+5	c
+6	b
+
+QCM — Création d’un projet Angular
+1	a
+2	b
+3	b
+4	c
+5	a
+
+partie - 3
+
+| Critère                | Angular                | React                   | Vue.js                  |
+| ---------------------- | ---------------------- | ----------------------- | ----------------------- |
+| Type                   | Framework complet      | Librairie UI            | Framework progressif    |
+| Langage principal      | TypeScript             | JavaScript (JSX)        | JavaScript              |
+| Structure              | MVC complet            | Composants indépendants | Composants + directives |
+| Outils officiels       | CLI, RxJS, Router      | Create React App        | Vue CLI                 |
+| Data Binding           | Bidirectionnel         | Unidirectionnel         | Bidirectionnel          |
+| Courbe d’apprentissage | Élevée                 | Moyenne                 | Facile                  |
+| Taille du bundle       | Lourde                 | Moyenne                 | Légère                  |
+| Idéal pour             | Applications complexes | Interfaces dynamiques   | Petits à moyens projets |
+
++ Avantages Angular :
+
+Structure complète et solide
+Support TypeScript
+Idéal pour grandes applications
+
++ Inconvénients :
+
+Plus complexe
+Lourdeur initiale
+
++ React/Vue :
+
+Plus flexibles et simples
+Plus léger pour petits projets
