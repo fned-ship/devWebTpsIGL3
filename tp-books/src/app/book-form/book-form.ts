@@ -1,10 +1,11 @@
 import { Component ,Input , Output, EventEmitter , OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
 import {FormsModule , NgForm} from '@angular/forms'
+import { OnlyTextDirective } from '../shared/directives/only-text.directive';
 
 @Component({
   selector: 'app-book-form',
-  imports: [FormsModule],
+  imports: [FormsModule,OnlyTextDirective],
   templateUrl: './book-form.html',
   styleUrl: './book-form.css',
 })

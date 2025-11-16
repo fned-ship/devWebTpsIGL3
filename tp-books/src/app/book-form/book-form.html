@@ -1,6 +1,6 @@
 <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
   <label for="title">Titre:</label>
-  <input type="text" id="title" name="title" [(ngModel)]="book.title" required minlength="3">
+  <input type="text" id="title" name="title" [(ngModel)]="book.title" required minlength="3" appOnlyText>
   <div *ngIf="bookForm.controls['title']?.invalid && bookForm.controls['title']?.dirty" class="error-message">
     <p *ngIf="bookForm.controls['title']?.errors?.['required']">Le titre est obligatoire.</p>
     <p *ngIf="bookForm.controls['title']?.errors?.['minlength']">Le titre doit contenir au moins 3 caractères.</p>

@@ -2,10 +2,23 @@
 <table>
   <thead>
     <tr>
-      <th>Titre</th>
+      <th (click)="onSort('title')">
+        Titre 
+        <span *ngIf="sortKey === 'title'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+      </th>
+      
       <th>Auteur</th>
-      <th>Catégorie</th>
-      <th>Disponible</th>
+      
+      <th (click)="onSort('category')">
+        Catégorie 
+        <span *ngIf="sortKey === 'category'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+      </th>
+      
+      <th (click)="onSort('isAvailable')">
+        Disponible 
+        <span *ngIf="sortKey === 'isAvailable'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+      </th>
+      
       <th>Actions</th>
     </tr>
   </thead>
@@ -20,6 +33,13 @@
         <button (click)="onDelete(book.id)">Supprimer</button>
       </td>
     </tr>
+    
+    <tr *ngIf="books.length === 0">
+      <td colspan="5">Aucun livre trouvé.</td>
+    </tr>
   </tbody>
 </table>
-<p>Nombre total de livres: {{ books.length }}</p>
+
+<p>
+  Nombre total de livres affichés: <strong>{{ books.length }}</strong>
+</p>

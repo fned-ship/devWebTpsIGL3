@@ -9,8 +9,17 @@ import { Book } from '../models/book.model';
 })
 export class BookList {
   @Input() books: Book[] = [];
+  @Input() sortKey: string = 'title'; 
+  @Input() sortDirection: 'asc' | 'desc' = 'asc'; 
+
   @Output() deleteBook = new EventEmitter<number>();
   @Output() editBook = new EventEmitter<Book>();
+  @Output() sortChanged = new EventEmitter<'title' | 'category' | 'isAvailable'>();
+   
+  onSort(key: 'title' | 'category' | 'isAvailable'): void {
+    this.sortChanged.emit(key);
+  }
+
   onDelete(id: number): void {
     this.deleteBook.emit(id);
   }
