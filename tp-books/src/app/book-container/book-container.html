@@ -1,0 +1,2 @@
+<app-book-list [books]="books" (deleteBook)="deleteBook($event)" (editBook)="startUpdate($event)" ></app-book-list>
+<app-book-form [categories]="categories" (saveBook)="handleSaveBook($event)" [bookToUpdate]="bookToUpdate" ></app-book-form>

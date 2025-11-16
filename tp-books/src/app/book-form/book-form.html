@@ -1,0 +1,32 @@
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+  <label for="title">Titre:</label>
+  <input type="text" id="title" name="title" [(ngModel)]="book.title" required minlength="3">
+  <div *ngIf="bookForm.controls['title']?.invalid && bookForm.controls['title']?.dirty" class="error-message">
+    <p *ngIf="bookForm.controls['title']?.errors?.['required']">Le titre est obligatoire.</p>
+    <p *ngIf="bookForm.controls['title']?.errors?.['minlength']">Le titre doit contenir au moins 3 caractères.</p>
+  </div>
+  
+  <label for="author">Auteur:</label>
+  <input type="text" id="author" name="author" [(ngModel)]="book.author" required minlength="3">
+  <label for="publisherEmail">Email de l'éditeur:</label>
+  <input type="email" id="publisherEmail" name="publisherEmail" [(ngModel)]="book.publisherEmail" required email>
+  <label for="publisherPhone">Téléphone de l'éditeur:</label>
+  <input type="number" id="publisherPhone" name="publisherPhone" [(ngModel)]="book.publisherPhone" pattern="^[0-9]{8}$">
+  <label for="releaseDate">Date de publication:</label>
+  <input type="date" id="releaseDate" name="releaseDate" [(ngModel)]="book.releaseDate" required>
+  <label for="category">Catégorie:</label>
+  <select id="category" name="category" [(ngModel)]="book.category" required>
+    <option value="" disabled>Sélectionnez une catégorie</option>
+    <option *ngFor="let cat of categories" [value]="cat" >{{ cat }}</option>
+  </select>
+  <label for="isAvailable">Disponible:</label>
+  <input type="checkbox" id="isAvailable" name="isAvailable" [(ngModel)]="book.isAvailable">
+  
+  <label for="stock">Stock:</label>
+  <input type="number" id="stock" name="stock" [(ngModel)]="book.stock" min="0">
+  <div *ngIf="bookForm.controls['stock']?.errors?.['min'] && bookForm.controls['stock']?.dirty" class="error-message">
+    <p>Le stock ne peut pas être négatif.</p>
+  </div>
+  
+  <button type="submit" [disabled]="bookForm.invalid">{{ formTitle }}</button>
+</form>
