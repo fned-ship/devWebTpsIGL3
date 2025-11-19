@@ -1,0 +1,17 @@
+<div *ngIf="taches.length > 0; else pasDeTaches">
+    <div *ngFor="let t of taches"
+     [ngClass]="{ 'done': t.complete }"
+     [ngStyle]="{
+       'color': t.priorite === 'haute' ? 'red' :
+                t.priorite === 'moyenne' ? 'orange' : 'green'
+     }">
+
+  {{ t.description }}
+
+    <button (click)="toggle(t)">Changer statut</button>
+    </div>
+</div>
+
+<ng-template #pasDeTaches>
+  <p>Vous n'avez pas de tâches en cours</p>
+</ng-template>

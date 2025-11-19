@@ -1,0 +1,48 @@
+/* Container général */
+:host {
+  display: block;
+  max-width: 500px;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+  background: #f7f9fc;
+  border-radius: 12px;
+}
+
+/* Chaque produit */
+div[ngStyle] {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* Hover effect */
+div[ngStyle]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Couleurs de stock dynamiques via ngStyle */
+div[ngStyle][style*="green"] {
+  border-left: 5px solid #2b8a3e;
+}
+
+div[ngStyle][style*="orange"] {
+  border-left: 5px solid #f0a500;
+}
+
+div[ngStyle][style*="red"] {
+  border-left: 5px solid #d32f2f;
+}
+
+/* Optionnel: texte plus lisible */
+div[ngStyle] span {
+  font-weight: 600;
+}

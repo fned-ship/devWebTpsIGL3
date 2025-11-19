@@ -1,0 +1,20 @@
+<h2>Quiz</h2>
+
+<div *ngIf="!finished; else resultat">
+  <app-question
+    [question]="questions[currentIndex]"
+    (selectOption)="onSelectOption($event, questions[currentIndex])"
+    (submitText)="onSubmitTextAnswer(questions[currentIndex])"
+    [(userText)]="userTextAnswer">
+  </app-question>
+
+  <p>Temps restant: {{ timeLeft }} s</p>
+
+  <button (click)="nextQuestion()">Passer</button>
+</div>
+
+<ng-template #resultat>
+  <h3>Fin du quiz</h3>
+  <app-score [score]="score" [bonnes]="bonnes" [mauvaises]="mauvaises"></app-score>
+  <button (click)="resetGame()">Recommencer</button>
+</ng-template>

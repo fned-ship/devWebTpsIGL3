@@ -2,12 +2,15 @@ import { Component , OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
 import { BookForm } from '../book-form/book-form';
 import { BookList } from '../book-list/book-list';
+import {FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-container',
-  imports: [BookForm,BookList],
+  standalone: true,
+  imports: [BookForm,BookList,FormsModule,CommonModule],
   templateUrl: './book-container.html',
-  styleUrl: './book-container.css',
+  styleUrls: ['./book-container.css'],
 })
 export class BookContainer{
   nextId: number = 3;
@@ -35,15 +38,22 @@ export class BookContainer{
       this.books.push(newBook); 
     } else {
       const index = this.books.findIndex(b => b.id === book.id);
+      const index1 = this.filteredBooks.findIndex(b => b.id === book.id);
       if (index > -1) {
         this.books[index] = book; 
+        this.bookToUpdate = null;
+      }
+      if (index1 > -1) {
+        this.filteredBooks[index1] = book; 
         this.bookToUpdate = null;
       }
     }
   }
 
   deleteBook(id: number): void {
+    console.log("id-- : ",id) ;
     this.books = this.books.filter(book => book.id !== id);
+    this.filteredBooks = this.filteredBooks.filter(book => book.id !== id);
   }
 
   ngOnInit() {

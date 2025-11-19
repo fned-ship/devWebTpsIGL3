@@ -1,0 +1,18 @@
+<div>
+  <h4>{{ question.question }}</h4>
+
+  <div *ngIf="question.type !== 'text'">
+    <button *ngFor="let opt of question.options"
+            (click)="onOptionClick(opt)"
+            [disabled]="question.answered">
+      {{ opt }}
+    </button>
+  </div>
+
+  <div *ngIf="question.type === 'text' || !question.options || question.options.length === 0">
+    <input [(ngModel)]="userText" (ngModelChange)="onTextChange($event)" placeholder="Votre réponse">
+    <button (click)="onSubmitText()" [disabled]="question.answered">Valider</button>
+  </div>
+
+  <p *ngIf="question.answered">Réponse enregistrée</p>
+</div>

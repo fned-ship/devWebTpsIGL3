@@ -1,12 +1,31 @@
-<div>
-  <input 
-    type="text" 
-    placeholder="Rechercher par titre ou auteur..."
-    [(ngModel)]="searchTerm"
-    (ngModelChange)="applyFilterAndSort()"
-  >
+<div class="books-page">
+
+  <div class="search-box">
+    <input 
+      type="text" 
+      placeholder="Rechercher par titre ou auteur..."
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="applyFilterAndSort()"
+    >
+  </div>
+
+  <div class="content">
+    <div class="list-section">
+      <app-book-list 
+        [books]="filteredBooks" 
+        [sortDirection]="sortDirection"
+        (sortChanged)="setSort($event)" 
+        (deleteBook)="deleteBook($event)" 
+        (editBook)="startUpdate($event)"
+      ></app-book-list>
+    </div>
+
+    <div class="form-section">
+      <app-book-form 
+        [categories]="categories" 
+        (saveBook)="handleSaveBook($event)" 
+        [bookToUpdate]="bookToUpdate"
+      ></app-book-form>
+    </div>
+  </div>
 </div>
-<app-book-list [books]="books" [sortDirection]="sortDirection"
-  (sortChanged)="setSort($event)" (deleteBook)="deleteBook($event)" 
-  (editBook)="startUpdate($event)" ></app-book-list>
-<app-book-form [categories]="categories" (saveBook)="handleSaveBook($event)" [bookToUpdate]="bookToUpdate" ></app-book-form>

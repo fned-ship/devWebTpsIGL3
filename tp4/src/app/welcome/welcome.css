@@ -1,0 +1,71 @@
+/* Container général */
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 320px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+/* Champ de texte */
+input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Style des boutons */
+button {
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Bouton connexion */
+button:nth-of-type(1) {
+  background-color: #007bff;
+  color: white;
+}
+
+button:nth-of-type(1):hover {
+  background-color: #0063cc;
+}
+
+/* Bouton déconnexion */
+button:nth-of-type(2) {
+  background-color: #f44336;
+  color: white;
+}
+
+button:nth-of-type(2):hover {
+  background-color: #d32f2f;
+}
+
+/* Message de bienvenue */
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  background: #e8f4ff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #005bb5;
+  text-align: center;
+  font-weight: bold;
+}

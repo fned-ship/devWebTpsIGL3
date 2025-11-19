@@ -1,0 +1,18 @@
+<input type="text" [(ngModel)]="newTitle" placeholder="Titre">
+<input type="text" [(ngModel)]="newContent" placeholder="Contenu">
+<select [(ngModel)]="newImportance">
+  <option value="élevée">Élevée</option>
+  <option value="moyenne">Moyenne</option>
+  <option value="faible">Faible</option>
+</select>
+<button (click)="addArticle()">Ajouter</button>
+
+<div *ngFor="let article of articles"
+     [ngClass]="{
+       'important': article.importance === 'élevée',
+       'moyen': article.importance === 'moyenne',
+       'faible': article.importance === 'faible'
+     }">
+  <h3>{{ article.titre }}</h3>
+  <p>{{ article.contenu }}</p>
+</div>

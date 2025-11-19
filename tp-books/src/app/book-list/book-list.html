@@ -23,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books; track book.id"> 
+    <tr *ngFor="let book of books; trackBy: trackById"> 
       <td>{{ book.title }}</td>
       <td>{{ book.author }}</td>
       <td>{{ book.category }}</td>
@@ -43,3 +43,4 @@
 <p>
   Nombre total de livres affichés: <strong>{{ books.length }}</strong>
 </p>
+

@@ -1,0 +1,100 @@
+/* .en-stock {
+  border: 2px solid green;
+  background-color: #e8ffe8;
+  padding: 10px;
+}
+.hors-stock {
+  border: 2px solid red;
+  background-color: #ffe8e8;
+  padding: 10px;
+} */
+/* img { display:block; margin-top: 8px; }
+button { margin-right: 8px; margin-top: 8px; } */
+
+
+
+/* Product Card Container */
+div {
+  max-width: 280px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.2s;
+}
+
+/* Hover effect only when in stock */
+.en-stock:hover {
+  transform: scale(1.03);
+}
+
+/* Image styling */
+img {
+  width: 200px;
+  height: auto;
+  margin: 12px 0;
+  border-radius: 10px;
+}
+
+/* Product title */
+h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Price styling */
+p {
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+/* Availability styling */
+.en-stock p:last-child {
+  color: #2b8a3e;
+  font-weight: 600;
+  background: #e6f4ea;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.hors-stock p:last-child {
+  color: #b02a37;
+  font-weight: 600;
+  background: #fde8ea;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Buttons */
+button {
+  display: block;
+  width: 100%;
+  background: #4c8bf5;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 8px 0;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Hover effects */
+button:hover:not([disabled]) {
+  background: #336fd6;
+  transform: scale(1.05);
+}
+
+/* Disabled buttons */
+button[disabled] {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+

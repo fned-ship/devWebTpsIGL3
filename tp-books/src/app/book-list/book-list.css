@@ -1,0 +1,111 @@
+/* Title */
+h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Table Container */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Table Header */
+thead {
+  background: #f2f5fa;
+}
+
+thead th {
+  padding: 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+/* Sort arrows */
+thead th span {
+  margin-left: 5px;
+  color: #4c8bf5;
+  font-weight: bold;
+}
+
+/* Table Body */
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e9edf3;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Hover row effect */
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* Availability cell styling */
+tbody td:nth-child(4) {
+  font-weight: 600;
+  color: #2d7d46; /* green for "Oui" */
+}
+
+tbody td:nth-child(4):contains("Non") {
+  color: #b22222; /* red for "Non" */
+}
+
+/* Action Buttons */
+td button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+/* Edit button */
+td button:first-child {
+  background: #4c8bf5;
+  color: white;
+}
+
+td button:first-child:hover {
+  background: #336fd6;
+}
+
+/* Delete button */
+td button:last-child {
+  background: #d9534f;
+  color: white;
+}
+
+td button:last-child:hover {
+  background: #b74440;
+}
+
+/* Empty state */
+tbody tr td[colspan] {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #777;
+}
+
+/* Count text */
+p {
+  margin-top: 12px;
+  color: #444;
+  font-size: 15px;
+}

@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 25px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Input styling */
+input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #d6d6d6;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 15px;
+}
+
+/* Focus effect */
+input:focus {
+  border-color: #4c8bf5;
+  box-shadow: 0 0 6px rgba(76, 139, 245, 0.3);
+}
+
+/* Real-time value text */
+p {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: 500;
+  background: #f3f7ff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 4px solid #4c8bf5;
+  color: #26457c;
+}

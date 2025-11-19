@@ -1,0 +1,92 @@
+/* .important { background: #ffcaca; border-left: 4px solid red; }
+.moyen { background: #fff3cd; border-left: 4px solid orange; }
+.faible { background: #d4f8d4; border-left: 4px solid green; } */
+
+
+/* Container général */
+:host {
+  display: block;
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+}
+
+/* Inputs et select */
+input[type="text"], select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #4c8bf5;
+  box-shadow: 0 0 6px rgba(76, 139, 245, 0.3);
+  outline: none;
+}
+
+/* Bouton Ajouter */
+button {
+  background-color: #4c8bf5;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #336fd6;
+  transform: scale(1.03);
+}
+
+/* Article cards */
+div[ngClass] {
+  background: #ffffff;
+  padding: 18px 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* Hover effect */
+div[ngClass]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Importance colors */
+.important {
+  border-left: 5px solid #d32f2f; /* rouge */
+}
+
+.moyen {
+  border-left: 5px solid #f0a500; /* orange */
+}
+
+.faible {
+  border-left: 5px solid #2b8a3e; /* vert */
+}
+
+/* Article titles */
+div[ngClass] h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Article content */
+div[ngClass] p {
+  margin: 0;
+  font-size: 15px;
+  color: #444;
+}

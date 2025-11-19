@@ -1,0 +1,82 @@
+/* Page Container */
+:host {
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+/* Title */
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Timer Box */
+p {
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+p::before {
+  content: "⏳ ";
+  font-size: 20px;
+}
+
+/* Timer Highlight */
+p {
+  background: #f3f7ff;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 10px;
+  border: 2px solid #d6e2ff;
+  color: #2c4ea5;
+}
+
+/* Buttons (Passer / Recommencer) */
+button {
+  background: #4c8bf5;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+/* Hover Effect */
+button:hover {
+  background: #336fd6;
+  transform: scale(1.05);
+}
+
+/* Result Section */
+h3 {
+  font-size: 24px;
+  margin-top: 15px;
+  color: #333;
+}
+
+/* Score component wrapper */
+ng-template, app-score {
+  display: block;
+  margin-top: 20px;
+}
+
+/* Make result section look like a card */
+:host ::ng-deep app-score {
+  display: block;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  max-width: 450px;
+}

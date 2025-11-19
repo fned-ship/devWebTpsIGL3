@@ -1,13 +1,15 @@
 import { Component ,Input , Output, EventEmitter , OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
-import {FormsModule , NgForm} from '@angular/forms'
+import {FormsModule , NgForm } from '@angular/forms'
 import { OnlyTextDirective } from '../shared/directives/only-text.directive';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-form',
-  imports: [FormsModule,OnlyTextDirective],
+  standalone: true,
+  imports: [FormsModule,OnlyTextDirective,CommonModule],
   templateUrl: './book-form.html',
-  styleUrl: './book-form.css',
+  styleUrls: ['./book-form.css'],
 })
 export class BookForm {
   @Input() categories: string[] = [];
